@@ -1,0 +1,28 @@
+# nginx2-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx2-deployment
+  namespace: ingress-nginx
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx2
+  template:
+    metadata:
+      labels:
+        app: nginx2
+    spec:
+      containers:
+      - name: nginx2
+        image: nginx:1.21.6
+        volumeMounts:
+        - name: nginx2-html
+          mountPath: /usr/share/nginx/html
+        ports:
+        - containerPort: 80
+      volumes:
+      - name: nginx2-html
+        configMap:
+          name: nginx2-html-config

@@ -1,0 +1,14 @@
+# nginx1-configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx1-html-config
+  namespace: ingress-nginx
+data:
+  index.html: |
+    <html>
+    <body>
+    <h1>Welcome to NGINX 1 Server</h1>
+    <p>This is the content served by nginx1.</p>
+    </body>
+    </html>

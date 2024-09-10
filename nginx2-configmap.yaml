@@ -1,0 +1,14 @@
+# nginx2-configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx2-html-config
+  namespace: ingress-nginx
+data:
+  index.html: |
+    <html>
+    <body>
+    <h1>Welcome to NGINX 2 Server</h1>
+    <p>This is the content served by nginx2.</p>
+    </body>
+    </html>
